@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 const PORT = process.env.PORT || 5000;
 const Bearer = require("@bearer/node")("FUFbE-aEBIbyWN5aVuX3wpWVp5pMOL8C");
 const gsheet = Bearer.integration("google_sheets");
@@ -9,6 +8,9 @@ const spreadsheetId = "1Fh6NwzEtnGFtkRPcssIcKvLjNG-CyFVNJyrsBopyA4Q";
 const mensaje = "";
 const app = express();
 
+app.listen(PORT, () => {
+  console.log(`escuchando en puerto ${PORT}`);
+});
 app.get("/", (req, res) => {
   res.send("noes");
   console.log(PORT);
