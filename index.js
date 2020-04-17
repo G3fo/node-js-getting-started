@@ -11,6 +11,7 @@ const app = express();
 
 app.get("/", (req, res) => {
   res.send("noes");
+  console.log(PORT);
 });
 
 app.get("/api/balance", (req, res) => {
