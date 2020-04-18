@@ -8,31 +8,26 @@ const spreadsheetId = "1Fh6NwzEtnGFtkRPcssIcKvLjNG-CyFVNJyrsBopyA4Q";
 const mensaje = "";
 const app = express();
 
-var valor;
-
 app.listen(PORT, () => {
   console.log(`escuchando en puerto ${PORT}`);
 });
+
 app.get("/", (req, res) => {
   res.send("noes");
-  console.log(PORT);
 });
 
 app.get("/api/balance", (req, res) => {
-  res.send("oh no");
-  // gsheet
-  //   .auth(auth)
-  //   .get(`14jey1jfv9gUeMFbbRpuNGtpRG9ntAqnSsLULVdmsvcc/values/A1`)
-  //   .then((r) => {
-  //     valor = r.data.values;
-  //     res.json({ balance: balance[0][0] });
-  //     res.send()
-  //   })
-  //   .catch(() => {
-  //     console.log("whoops");
-  //   });
-
-  // res.send(bal);
+  gsheet
+    .auth(auth)
+    .get(`14jey1jfv9gUeMFbbRpuNGtpRG9ntAqnSsLULVdmsvcc/values/A1`)
+    .then((r) => {
+      let balance = r.data.values;
+      res.json({ balance: balance[0][0] });
+      res.send(res);
+    })
+    .catch(() => {
+      console.log("whoops");
+    });
 });
 
 // app.listen(port, () => {
