@@ -8,6 +8,8 @@ const spreadsheetId = "1Fh6NwzEtnGFtkRPcssIcKvLjNG-CyFVNJyrsBopyA4Q";
 const mensaje = "";
 const app = express();
 
+var valor;
+
 app.listen(PORT, () => {
   console.log(`escuchando en puerto ${PORT}`);
 });
@@ -17,16 +19,20 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/balance", (req, res) => {
-  gsheet
-    .auth(auth)
-    .get(`14jey1jfv9gUeMFbbRpuNGtpRG9ntAqnSsLULVdmsvcc/values/A1`)
-    .then((r) => {
-      let balance = r.data.values;
-      res.json({ balance: balance[0][0] });
-    })
-    .catch(() => {
-      console.log("whoops");
-    });
+  res.send("oh no");
+  // gsheet
+  //   .auth(auth)
+  //   .get(`14jey1jfv9gUeMFbbRpuNGtpRG9ntAqnSsLULVdmsvcc/values/A1`)
+  //   .then((r) => {
+  //     valor = r.data.values;
+  //     res.json({ balance: balance[0][0] });
+  //     res.send()
+  //   })
+  //   .catch(() => {
+  //     console.log("whoops");
+  //   });
+
+  // res.send(bal);
 });
 
 // app.listen(port, () => {
